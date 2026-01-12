@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "build": "npm install && npm install --prefix frontend/chatbox && npm run build --prefix frontend/chatbox"
+  "build": "npm install && npm install --prefix ../frontend/chatbox && npm run build --prefix ../frontend/chatbox"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
