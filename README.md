@@ -74,8 +74,18 @@ User authentication is required to access chat
 📸 Screenshots
 
 Login page
+<img width="1920" height="1200" alt="image1" src="https://github.com/user-attachments/assets/2be7bfc0-590f-4487-a844-38b0c28eb53b" />
 
-(image/image1.png)
+Signup page
+
+
+<img width="1920" height="1200" alt="image2" src="https://github.com/user-attachments/assets/acffceaf-bb9e-4c23-96b5-0029d42b2e4e" />
+
+chatbox
+
+<img width="1920" height="1200" alt="image3" src="https://github.com/user-attachments/assets/9c8bae7e-8d16-4297-82b7-254c5493cb5a" />
+<img width="1920" height="1200" alt="image4" src="https://github.com/user-attachments/assets/29e07f90-edac-491e-9ef3-7fbb2da11eab" />
+
 
 📈 Future Enhancements
 
