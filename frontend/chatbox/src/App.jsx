@@ -3,7 +3,7 @@ import Left from './leftpart/left';
 import Right from './rightpart/Right';
 import Sighnup from './components/Sighnup'
 import Login from './components/login';
-import { useAuth } from './authprovider';
+import { useAuth } from './Authprovider';
 import Loading from './components/Loading';
 import { Toaster } from 'react-hot-toast';
 

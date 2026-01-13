@@ -5,7 +5,7 @@ import Chatsend from "./Chatsend";
 import Getmessage from "../Getmessage";
 import Loading from "../components/Loading";
 import useConversation from "../useConversation";
-import { useAuth } from "../authprovider";
+import { useAuth } from "../Authprovider";
 import UseSocketmsg from "../context/UseSocketmsg";
 import { CiMenuFries } from "react-icons/ci";
 

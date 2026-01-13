@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAuth } from '../authprovider';
+import { useAuth } from '../Authprovider';
 import { useForm } from "react-hook-form"
 import { Link } from 'react-router-dom';
 import  axios  from 'axios';
