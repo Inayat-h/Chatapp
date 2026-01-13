@@ -7,7 +7,7 @@ const server = http.createServer(app);
 const users={};
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:3001",
+        origin: "https://chatapp-qk2g.onrender.com",
         methods: ["GET", "POST"]
     },
 });
