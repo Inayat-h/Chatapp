@@ -1,61 +1,46 @@
-const dotenv=require("dotenv");
+const dotenv = require("dotenv");
 dotenv.config();
-const express=require("express");
+
+const express = require("express");
 const path = require("path");
-const mongoose=require("mongoose");
-const Url=process.env.MONGOURL;
-const userRouter=require("./routers/userRouter")
-const cors=require("cors");
-const cookieParser=require("cookie-parser");
-const secureRoute=require("./middlewere/secureRoute");
-const messageRouter=require("./routers/messageRouter");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
+const userRouter = require("./routers/userRouter");
+const messageRouter = require("./routers/messageRouter");
 
-const {server,app}=require("./socketIo/server");
+const { server, app } = require("./socketIo/server");
 
+const Url = process.env.MONGOURL;
+const PORT = process.env.PORT || 4002;
 
+// MongoDB
+mongoose
+  .connect(Url)
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.log(err));
 
-
-
-
-
-main().then((res)=>{
-  console.log("connected");
-}).catch((err)=>{
-  console.log(err);
-});
-
-
-
-async function main(){
-  await mongoose.connect(Url);
-
-};
-
+// Middlewares
 app.use(cookieParser());
 app.use(cors());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/api/user",userRouter);
-app.use("/api/message",messageRouter);
 
-app.post('/app', async function (req, res) {
-  console.log(req.body);
-})
+// Routes
+app.use("/api/user", userRouter);
+app.use("/api/message", messageRouter);
 
-//code for deployment
+// FRONTEND SERVE (Render fix)
+const frontendPath = path.join(__dirname, "..", "frontend", "chatbox", "dist");
 
-if (process.env.NODE_ENV === "production") {
-  const frontendPath = path.join(__dirname, "..", "frontend", "chatbox", "dist");
+app.use(express.static(frontendPath));
 
-  app.use(express.static(frontendPath));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(frontendPath, "index.html"));
+});
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(frontendPath, "index.html"));
-  });
-}
-
-
-server.listen(4002,()=>{
-    console.log("app.listen");
+// Start server
+server.listen(PORT, () => {
+  console.log("Server running on port", PORT);
 });
